@@ -67,20 +67,27 @@ const equipmentPages=[
 ];
 const dishPages=[
   ["4st食器","https://docs.google.com/spreadsheets/d/1EAn_vFODcvcc3sRxP8igCxCX7BWhvBf4diXAmZnm4ZQ/edit?usp=sharing"],
-  ["4st登録","https://docs.google.com/forms/d/e/1FAIpQLSesRknVL88JDuh9grhxJMevfBlTnao0bhIHFVTQscG9kQjHjA/viewform?usp=dialog"],
+  ["4st登録（外部リンク）","https://docs.google.com/forms/d/e/1FAIpQLSesRknVL88JDuh9grhxJMevfBlTnao0bhIHFVTQscG9kQjHjA/viewform?usp=dialog"],
   ["ラボ食器","https://docs.google.com/spreadsheets/d/15kuZJbt7efEKulHzakFF2N6MgvvAtcHIj6XjgnG8wVE/edit?usp=sharing"],
-  ["ラボ登録","https://docs.google.com/forms/d/e/1FAIpQLScA7hzxBfq6SJE1KfP2gd6xKpM4N_ZIzz4GPc-JHillDYSfQg/viewform?usp=dialog"]
+  ["ラボ登録（外部リンク）","https://docs.google.com/forms/d/e/1FAIpQLScA7hzxBfq6SJE1KfP2gd6xKpM4N_ZIzz4GPc-JHillDYSfQg/viewform?usp=dialog"]
 ];
 const accessPages=[
-  ["01st/06st","https://cherish-studio.com/topic/?p=514/"],
+  ["01st","https://cherish-studio.com/topic/?p=514/"],
   ["02st","https://cherish-studio.com/topic/?p=558"],
-  ["03st/10st","https://cherish-studio.com/topic/?p=584"],
-  ["04st/08st","https://cherish-studio.com/topic/?p=597"],
+  ["03st","https://cherish-studio.com/topic/?p=584"],
+  ["04st","https://cherish-studio.com/topic/?p=597"],
   ["05st","https://cherish-studio.com/topic/?p=615"],
+  ["06st","https://cherish-studio.com/topic/?p=514/"],
   ["07st","https://cherish-studio.com/topic/?p=3134/"],
-  ["09st/ルーム","https://cherish-studio.com/topic/?p=645"],
-  ["11～14st","https://cherish-studio.com/topic/?p=-2624/"],
+  ["08st","https://cherish-studio.com/topic/?p=597"],
+  ["09st","https://cherish-studio.com/topic/?p=645"],
+  ["10st","https://cherish-studio.com/topic/?p=584"],
+  ["11st","https://cherish-studio.com/topic/?p=-2624/"],
+  ["12st","https://cherish-studio.com/topic/?p=-2624/"],
+  ["13st","https://cherish-studio.com/topic/?p=-2624/"],
+  ["14st","https://cherish-studio.com/topic/?p=-2624/"],
   ["ラボ","https://cherish-studio.com/topic/?p=5409/"],
+  ["ルーム","https://cherish-studio.com/topic/?p=645"],
   ["新天地","https://cherish-studio.com/topic/?p=-8109/"]
 ];
 const commonPages=[
@@ -115,6 +122,12 @@ for(const [select,pages] of groups){
   select.addEventListener("change",()=>{
     const option=select.options[select.selectedIndex];
     if(!option || !option.value)return;
+    // Googleフォームはiframeを使わず、別タブで直接開く
+    if(option.value.startsWith("https://docs.google.com/forms/")){
+      window.open(option.value,"_blank","noopener,noreferrer");
+      select.selectedIndex=0;
+      return;
+    }
     currentUrl=option.value;
     viewer.src=currentUrl;
     welcome.style.display="none";
