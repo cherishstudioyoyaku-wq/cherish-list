@@ -3,301 +3,52 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>早見表　Cherish Studio</title>
-
-<!-- 🎀 アイコン -->
+<title>Q&amp;A　Cherish Studio</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='48' text-anchor='middle' font-size='48'%3E🎀%3C/text%3E%3C/svg%3E">
-
 <style>
 *{box-sizing:border-box}
-
-html,body{
-  height:100%;
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;
-  background:#f5f5f5;
-  color:#222;
-}
-
-body{
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-}
-
-header{
-  flex:0 0 auto;
-  background:#fff;
-  border-bottom:1px solid #ddd;
-  padding:7px 10px;
-  box-shadow:0 1px 4px rgba(0,0,0,.08);
-  z-index:10;
-}
-
-.top{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:6px;
-}
-
-h1{
-  font-size:14px;
-  margin:0;
-  white-space:nowrap;
-}
-
-#status{
-  font-size:11px;
-  color:#666;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-/* メニュー */
-.menu-row{
-  display:flex;
-  align-items:center;
-  gap:4px;
-  margin-top:4px;
-}
-
-.menu-label{
-  width:58px;
-  flex:0 0 58px;
-  font-size:10px;
-  color:#777;
-  font-weight:bold;
-}
-
-.menu{
-  display:flex;
-  flex-wrap:wrap;
-  gap:4px;
-}
-
-button{
-  border:1px solid #bbb;
-  background:#fafafa;
-  border-radius:4px;
-  padding:4px 8px;
-  font-size:12px;
-  line-height:1.2;
-  cursor:pointer;
-}
-
-button:hover{
-  background:#eee;
-}
-
-button.active{
-  background:#333;
-  color:#fff;
-  border-color:#333;
-}
-
-/* リンク準備中 */
-button.pending{
-  background:#eee;
-  color:#aaa;
-  border-color:#ddd;
-  cursor:not-allowed;
-}
-
-button.pending:hover{
-  background:#eee;
-}
-
-#external{
-  margin-left:auto;
-  font-size:11px;
-  white-space:nowrap;
-}
-
-main{
-  flex:1;
-  min-height:0;
-  position:relative;
-}
-
-iframe{
-  width:100%;
-  height:100%;
-  border:0;
-  background:#fff;
-}
-
-/* 最初の案内画面 */
-#welcome{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#fff;
-  text-align:center;
-  padding:30px;
-  color:#777;
-  font-size:13px;
-}
-
-#welcome strong{
-  display:block;
-  color:#333;
-  font-size:16px;
-  margin-bottom:7px;
-}
-
-.mobile-selects{
-  display:none;
-}
-
-/* スマホ */
-@media (max-width:700px){
-
-  header{
-    padding:6px 8px;
-  }
-
-  .top{
-    gap:6px;
-    margin-bottom:5px;
-  }
-
-  h1{
-    font-size:13px;
-  }
-
-  #status{
-    display:none;
-  }
-
-  #external{
-    font-size:10px;
-    padding:4px 6px;
-  }
-
-  .desktop-menus{
-    display:none;
-  }
-
-  .mobile-selects{
-    display:flex;
-    flex-direction:column;
-    gap:5px;
-  }
-
-  .mobile-select-row{
-    display:flex;
-    align-items:center;
-    gap:6px;
-  }
-
-  .mobile-select-row label{
-    width:55px;
-    flex:0 0 55px;
-    font-size:11px;
-    color:#666;
-  }
-
-  .mobile-select-row select{
-    flex:1;
-    min-width:0;
-    border:1px solid #bbb;
-    border-radius:5px;
-    background:#fff;
-    padding:6px 8px;
-    font-size:13px;
-  }
-}
+html,body{height:100%;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:#f5f5f5;color:#222}
+body{display:flex;flex-direction:column;overflow:hidden}
+header{flex:0 0 auto;background:#fff;border-bottom:1px solid #ddd;padding:7px 10px;box-shadow:0 1px 4px rgba(0,0,0,.08);z-index:10}
+.top{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+h1{font-size:14px;margin:0;white-space:nowrap}
+#status{font-size:11px;color:#666;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+button{border:1px solid #bbb;background:#fafafa;border-radius:4px;padding:5px 9px;font-size:12px;cursor:pointer;white-space:nowrap}
+button:hover:not(:disabled){background:#eee}
+button:disabled{background:#eee;color:#999;cursor:not-allowed}
+#external{margin-left:auto;font-size:11px}
+.menu{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}
+.menu select{min-width:120px;max-width:230px;flex:1 1 0;border:1px solid #bbb;border-radius:4px;background:#fff;padding:5px 8px;font-size:12px;color:#222;cursor:pointer}
+.menu select:focus{outline:2px solid #a3b6cf;outline-offset:1px}
+main{flex:1;min-height:0;position:relative}
+iframe{width:100%;height:100%;border:0;background:#fff}
+#welcome{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#fff;text-align:center;padding:30px;color:#777;font-size:13px}
+#welcome strong{display:block;color:#333;font-size:16px;margin-bottom:7px}
+@media(max-width:700px){header{padding:6px 8px}.top{gap:6px;margin-bottom:6px}h1{font-size:13px}#status{display:none}#external{font-size:10px;padding:4px 6px}.menu{gap:6px;flex-wrap:wrap;overflow-x:visible}.menu select{flex:1 1 calc(50% - 6px);min-width:0;max-width:none;font-size:12px}.menu button{flex:0 0 auto}}
 </style>
 </head>
-
 <body>
-
 <header>
-
   <div class="top">
-    <h1>Cherish Studio｜早見表</h1>
+    <h1>Cherish Studio｜Q&amp;A</h1>
     <span id="status">項目を選択してください</span>
-
-    <button id="external" type="button" disabled>
-      現在ページを通常表示
-    </button>
+    <button id="external" type="button" disabled>現在ページを通常表示</button>
   </div>
-
-
-  <!-- PCメニュー -->
-  <div class="desktop-menus">
-
-    <!-- 1段目 -->
-    <div class="menu-row">
-      <div class="menu-label">早見表</div>
-      <nav class="menu" id="studioMenu"></nav>
-    </div>
-
-    <!-- 2段目 -->
-    <div class="menu-row">
-      <div class="menu-label">共通資料</div>
-      <nav class="menu" id="commonMenu"></nav>
-    </div>
-
-  </div>
-
-
-  <!-- スマホメニュー -->
-  <div class="mobile-selects">
-
-    <div class="mobile-select-row">
-      <label for="studioSelect">早見表</label>
-      <select id="studioSelect">
-        <option value="">選択してください</option>
-      </select>
-    </div>
-
-    <div class="mobile-select-row">
-      <label for="commonSelect">共通資料</label>
-      <select id="commonSelect">
-        <option value="">選択してください</option>
-      </select>
-    </div>
-
-  </div>
-
+  <nav class="menu" aria-label="Q&Aメニュー">
+    <button type="button" disabled title="リンク準備中">早見表（準備中）</button>
+    <select id="equipment" aria-label="備品リスト"><option value="">備品リスト ▼</option></select>
+    <select id="dishes" aria-label="食器管理"><option value="">食器管理 ▼</option></select>
+    <select id="access" aria-label="アクセス"><option value="">アクセス ▼</option></select>
+    <select id="common" aria-label="スタジオ共通資料"><option value="">スタジオ共通資料 ▼</option></select>
+  </nav>
 </header>
-
-
 <main>
-
-  <iframe
-    id="viewer"
-    name="viewer"
-    title="早見表">
-  </iframe>
-
-  <div id="welcome">
-    <div>
-      <strong>Cherish Studio 早見表</strong>
-      上のメニューから確認したい項目を選択してください。
-    </div>
-  </div>
-
+  <iframe id="viewer" name="viewer" title="Q&A資料"></iframe>
+  <div id="welcome"><div><strong>Cherish Studio Q&amp;A</strong>上のメニューから確認したい項目を選択してください。</div></div>
 </main>
-
-
 <script>
-
-/* =========================================
-   1段目：スタジオ別早見表
-   URLが決まったら null の部分をURLに変更
-========================================= */
-
-const studioPages=[
-
-  ["早見表", null],
-
+// 項目は [表示名, URL]。未作成のリンクは null にしてください。
+const equipmentPages=[
   ["01st","https://cherish-studio.com/topic/?p=2928"],
   ["02st","https://cherish-studio.com/topic/?p=2942"],
   ["03st","https://cherish-studio.com/topic/?p=6660"],
@@ -312,209 +63,67 @@ const studioPages=[
   ["12st","https://cherish-studio.com/topic/?p=3006"],
   ["13st","https://cherish-studio.com/topic/?p=3010"],
   ["14st","https://cherish-studio.com/topic/?p=3013"],
-
-  ["ラボ", null],
-  ["ルーム", null]
-
+  ["ラボ",null],["ルーム",null],["新天地",null]
 ];
-
-
-/* =========================================
-   2段目：共通資料
-========================================= */
-
+const dishPages=[
+  ["4st食器","https://docs.google.com/spreadsheets/d/1EAn_vFODcvcc3sRxP8igCxCX7BWhvBf4diXAmZnm4ZQ/edit?usp=sharing"],
+  ["4st登録","https://docs.google.com/forms/d/e/1FAIpQLSesRknVL88JDuh9grhxJMevfBlTnao0bhIHFVTQscG9kQjHjA/viewform?usp=dialog"],
+  ["ラボ食器","https://docs.google.com/spreadsheets/d/15kuZJbt7efEKulHzakFF2N6MgvvAtcHIj6XjgnG8wVE/edit?usp=sharing"],
+  ["ラボ登録","https://docs.google.com/forms/d/e/1FAIpQLScA7hzxBfq6SJE1KfP2gd6xKpM4N_ZIzz4GPc-JHillDYSfQg/viewform?usp=dialog"]
+];
+const accessPages=[
+  ["01st/06st","https://cherish-studio.com/topic/?p=514/"],
+  ["02st","https://cherish-studio.com/topic/?p=558"],
+  ["03st/10st","https://cherish-studio.com/topic/?p=584"],
+  ["04st/08st","https://cherish-studio.com/topic/?p=597"],
+  ["05st","https://cherish-studio.com/topic/?p=615"],
+  ["07st","https://cherish-studio.com/topic/?p=3134/"],
+  ["09st/ルーム","https://cherish-studio.com/topic/?p=645"],
+  ["11～14st","https://cherish-studio.com/topic/?p=-2624/"],
+  ["ラボ","https://cherish-studio.com/topic/?p=5409/"],
+  ["新天地","https://cherish-studio.com/topic/?p=-8109/"]
+];
 const commonPages=[
-
-  ["オプション",
-   "https://cherish-studio.com/topic/1st-6151/"],
-
-  ["衣装",
-   "https://cherish-studio.com/topic/information-7611/"],
-
-  ["LED",
-   "https://cherish-studio.com/topic/1st-4437/"],
-
-  ["Wi-Fi速度",
-   "https://cherish-studio.com/topic/1st-6365/"],
-
-  ["食器",
-   "https://docs.google.com/spreadsheets/d/1EAn_vFODcvcc3sRxP8igCxCX7BWhvBf4diXAmZnm4ZQ/edit?usp=sharing"],
-
-  ["ラボ食器",
-   "https://docs.google.com/spreadsheets/d/15kuZJbt7efEKulHzakFF2N6MgvvAtcHIj6XjgnG8wVE/edit?usp=sharing"]
-
+  ["オプション","https://cherish-studio.com/topic/1st-6151/"],
+  ["衣装","https://cherish-studio.com/topic/information-7611/"],
+  ["LED","https://cherish-studio.com/topic/1st-4437/"],
+  ["Wi-Fi速度","https://cherish-studio.com/topic/1st-6365/"],
+  ["食器","https://docs.google.com/spreadsheets/d/1EAn_vFODcvcc3sRxP8igCxCX7BWhvBf4diXAmZnm4ZQ/edit?usp=sharing"],
+  ["ラボ食器","https://docs.google.com/spreadsheets/d/15kuZJbt7efEKulHzakFF2N6MgvvAtcHIj6XjgnG8wVE/edit?usp=sharing"],
+  ["自然光","https://cherish-studio.com/topic/?p=3205/"]
 ];
-
-
-/* =========================================
-   以下は基本的に変更不要
-========================================= */
-
-const studioMenu=document.getElementById("studioMenu");
-const commonMenu=document.getElementById("commonMenu");
-
-const studioSelect=document.getElementById("studioSelect");
-const commonSelect=document.getElementById("commonSelect");
-
+const groups=[
+  [document.getElementById("equipment"),equipmentPages],
+  [document.getElementById("dishes"),dishPages],
+  [document.getElementById("access"),accessPages],
+  [document.getElementById("common"),commonPages]
+];
 const viewer=document.getElementById("viewer");
 const welcome=document.getElementById("welcome");
-
 const status=document.getElementById("status");
 const external=document.getElementById("external");
-
 let currentUrl="";
-
-
-/* ページ表示 */
-
-function loadPage(label,url,button){
-
-  if(!url){
-    return;
-  }
-
-  currentUrl=url;
-
-  welcome.style.display="none";
-
-  viewer.src=url;
-
-  status.textContent=label+" を表示中";
-
-  external.disabled=false;
-
-  document
-    .querySelectorAll(".menu button")
-    .forEach(b=>b.classList.remove("active"));
-
-  if(button){
-    button.classList.add("active");
-  }
-}
-
-
-/* PC用ボタンを作成 */
-
-function createButtons(data,container){
-
-  data.forEach(([label,url])=>{
-
-    const button=document.createElement("button");
-
-    button.type="button";
-    button.textContent=label;
-
-    if(!url){
-
-      button.classList.add("pending");
-      button.disabled=true;
-      button.title="リンク準備中";
-
-    }else{
-
-      button.onclick=()=>{
-        loadPage(label,url,button);
-      };
-
-    }
-
-    container.appendChild(button);
-
-  });
-
-}
-
-
-/* スマホ用選択肢 */
-
-function createOptions(data,select){
-
-  data.forEach(([label,url])=>{
-
+for(const [select,pages] of groups){
+  for(const [label,url] of pages){
     const option=document.createElement("option");
-
-    option.textContent=
-      url ? label : label+"（準備中）";
-
-    if(url){
-      option.value=url;
-      option.dataset.label=label;
-    }else{
-      option.value="";
-      option.disabled=true;
-    }
-
+    option.textContent=url?label:label+"（準備中）";
+    option.value=url||"";
+    option.disabled=!url;
+    option.dataset.label=label;
     select.appendChild(option);
-
+  }
+  select.addEventListener("change",()=>{
+    const option=select.options[select.selectedIndex];
+    if(!option || !option.value)return;
+    currentUrl=option.value;
+    viewer.src=currentUrl;
+    welcome.style.display="none";
+    status.textContent=option.dataset.label+" を表示中";
+    external.disabled=false;
+    for(const [other] of groups){if(other!==select)other.selectedIndex=0;}
   });
-
 }
-
-
-/* メニュー生成 */
-
-createButtons(studioPages,studioMenu);
-createButtons(commonPages,commonMenu);
-
-createOptions(studioPages,studioSelect);
-createOptions(commonPages,commonSelect);
-
-
-/* スマホ：スタジオ */
-
-studioSelect.onchange=()=>{
-
-  const option=
-    studioSelect.options[studioSelect.selectedIndex];
-
-  if(!option.value){
-    return;
-  }
-
-  commonSelect.value="";
-
-  loadPage(
-    option.dataset.label,
-    option.value,
-    null
-  );
-
-};
-
-
-/* スマホ：共通資料 */
-
-commonSelect.onchange=()=>{
-
-  const option=
-    commonSelect.options[commonSelect.selectedIndex];
-
-  if(!option.value){
-    return;
-  }
-
-  studioSelect.value="";
-
-  loadPage(
-    option.dataset.label,
-    option.value,
-    null
-  );
-
-};
-
-
-/* 通常表示 */
-
-external.onclick=()=>{
-
-  if(currentUrl){
-    window.location.href=currentUrl;
-  }
-
-};
-
+external.addEventListener("click",()=>{if(currentUrl)window.location.href=currentUrl;});
 </script>
-
 </body>
 </html>
