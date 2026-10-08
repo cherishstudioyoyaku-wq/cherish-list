@@ -18,13 +18,16 @@ button:hover:not(:disabled){background:#eee}
 button:disabled{background:#eee;color:#999;cursor:not-allowed}
 #external{margin-left:auto;font-size:11px}
 .menu{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}
-.menu select{min-width:120px;max-width:230px;flex:1 1 0;border:1px solid #bbb;border-radius:4px;background:#fff;padding:5px 8px;font-size:12px;color:#222;cursor:pointer}
+.menu select{width:100%;min-width:0;border:1px solid #bbb;border-radius:4px;background:#fff;padding:5px 8px;font-size:12px;color:#222;cursor:pointer}
+.menu-group{display:flex;flex:1 1 0;min-width:120px;max-width:230px;flex-direction:column;gap:4px}
+.menu-group label{font-size:11px;color:#666;font-weight:600;white-space:nowrap}
+.menu>button{align-self:flex-end}
 .menu select:focus{outline:2px solid #a3b6cf;outline-offset:1px}
 main{flex:1;min-height:0;position:relative}
 iframe{width:100%;height:100%;border:0;background:#fff}
 #welcome{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#fff;text-align:center;padding:30px;color:#777;font-size:13px}
 #welcome strong{display:block;color:#333;font-size:16px;margin-bottom:7px}
-@media(max-width:700px){header{padding:6px 8px}.top{gap:6px;margin-bottom:6px}h1{font-size:13px}#status{display:none}#external{font-size:10px;padding:4px 6px}.menu{gap:6px;flex-wrap:wrap;overflow-x:visible}.menu select{flex:1 1 calc(50% - 6px);min-width:0;max-width:none;font-size:12px}.menu button{flex:0 0 auto}}
+@media(max-width:700px){header{padding:6px 8px}.top{gap:6px;margin-bottom:6px}h1{font-size:13px}#status{display:none}#external{font-size:10px;padding:4px 6px}.menu{gap:6px;flex-wrap:wrap;overflow-x:visible}.menu-group{flex:1 1 calc(50% - 6px);min-width:0;max-width:none}.menu select{font-size:12px}.menu button{flex:0 0 auto}}
 </style>
 </head>
 <body>
@@ -36,10 +39,10 @@ iframe{width:100%;height:100%;border:0;background:#fff}
   </div>
   <nav class="menu" aria-label="Q&Aメニュー">
     <button type="button" disabled title="リンク準備中">早見表（準備中）</button>
-    <select id="equipment" aria-label="備品リスト"><option value="">備品リスト ▼</option></select>
-    <select id="dishes" aria-label="食器管理"><option value="">食器管理 ▼</option></select>
-    <select id="access" aria-label="アクセス"><option value="">アクセス ▼</option></select>
-    <select id="common" aria-label="スタジオ共通資料"><option value="">スタジオ共通資料 ▼</option></select>
+    <div class="menu-group"><label for="equipment">備品リスト</label><select id="equipment"><option value="">選択してください ▼</option></select></div>
+    <div class="menu-group"><label for="dishes">食器管理</label><select id="dishes"><option value="">選択してください ▼</option></select></div>
+    <div class="menu-group"><label for="access">アクセス</label><select id="access"><option value="">選択してください ▼</option></select></div>
+    <div class="menu-group"><label for="common">共通資料</label><select id="common"><option value="">選択してください ▼</option></select></div>
   </nav>
 </header>
 <main>
@@ -82,10 +85,10 @@ const accessPages=[
   ["08st","https://cherish-studio.com/topic/?p=597"],
   ["09st","https://cherish-studio.com/topic/?p=645"],
   ["10st","https://cherish-studio.com/topic/?p=584"],
-  ["11st","https://cherish-studio.com/topic/?p=2624/"],
-  ["12st","https://cherish-studio.com/topic/?p=2624/"],
-  ["13st","https://cherish-studio.com/topic/?p=2624/"],
-  ["14st","https://cherish-studio.com/topic/?p=2624/"],
+  ["11st","https://cherish-studio.com/topic/?p=-2624/"],
+  ["12st","https://cherish-studio.com/topic/?p=-2624/"],
+  ["13st","https://cherish-studio.com/topic/?p=-2624/"],
+  ["14st","https://cherish-studio.com/topic/?p=-2624/"],
   ["ラボ","https://cherish-studio.com/topic/?p=5409/"],
   ["ルーム","https://cherish-studio.com/topic/?p=645"],
   ["新天地","https://cherish-studio.com/topic/?p=-8109/"]
@@ -96,7 +99,6 @@ const commonPages=[
   ["LED","https://cherish-studio.com/topic/1st-4437/"],
   ["Wi-Fi速度","https://cherish-studio.com/topic/1st-6365/"],
   ["食器","https://docs.google.com/spreadsheets/d/1EAn_vFODcvcc3sRxP8igCxCX7BWhvBf4diXAmZnm4ZQ/edit?usp=sharing"],
-  ["ラボ食器","https://docs.google.com/spreadsheets/d/15kuZJbt7efEKulHzakFF2N6MgvvAtcHIj6XjgnG8wVE/edit?usp=sharing"],
   ["自然光","https://cherish-studio.com/topic/?p=3205/"]
 ];
 const groups=[
@@ -140,3 +142,4 @@ external.addEventListener("click",()=>{if(currentUrl)window.location.href=curren
 </script>
 </body>
 </html>
+
